@@ -1,7 +1,15 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const ReviewSection = ({ propertyId }) => {
+type ReviewSectionProps = {
+    propertyId: number;
+};
+type Review = {
+    id: string;
+    comment: string;
+};
+
+const ReviewSection: React.FC<ReviewSectionProps>  = ({ propertyId }) => {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -26,7 +34,7 @@ const ReviewSection = ({ propertyId }) => {
 
     return (
         <div>
-            {reviews.map((review) => (
+            {reviews.map((review: Review) => (
                 <div key={review.id}>
                     <p>{review.comment}</p>
                 </div>

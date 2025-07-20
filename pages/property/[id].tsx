@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";import {PropertyDisplay} from "@/pages/property/[id]/PropertyDisplay";
 
-export default function PropertyDetail(){
+export default function PropertyDetail( )   {
     const router = useRouter();
     const { id } = router.query;
     const [property, setProperty] = useState(null);
@@ -12,7 +12,7 @@ export default function PropertyDetail(){
         const fetchProperty = async () => {
             if (!id) return;
             try{
-                const response = await axios.get(`/api/properties/${id}`);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/properties`);
                 setProperty(response.data);
             } catch (error){
                 console.error("Error fetching property datails:", error);
@@ -32,5 +32,5 @@ export default function PropertyDetail(){
         return <p>Property not found</p>;
     }
 
-    return <PropertyDetail property={property} />;
+    return <PropertyDisplay property={property} />;
 }

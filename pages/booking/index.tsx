@@ -1,8 +1,8 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import axios from "axios";
 
 export default function BookingPage() {
-    const [formData, setFormData] = useState({
+    const [formData] = useState({
         firstName: "",
         lastName: "",
         email: "",
@@ -16,7 +16,7 @@ export default function BookingPage() {
     const [loading, setLoading]= useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e:any) => {
         e.preventDefault();
         setLoading(true);
         setError(null);

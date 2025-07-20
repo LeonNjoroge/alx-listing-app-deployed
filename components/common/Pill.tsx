@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import {PillProps} from "@/interfaces";
 
 const PillComponent = ({ label, isActive, onClick }: PillProps) => {

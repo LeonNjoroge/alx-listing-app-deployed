@@ -1,4 +1,3 @@
-import CancellationPolicy from "@/components/booking/CancellationPolicy";
 
 const BookingForm = () => (
     <div className="bg-white p-6 shadow-md rounded-lg">
